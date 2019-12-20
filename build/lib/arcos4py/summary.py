@@ -1,5 +1,5 @@
-# Summary Functions
-#__version__ = "0.1.1"
+# arcos4py Summary Functions
+#__version__ = "0.1.6"
 def get_summ_combined_county_annual(state, county = '',verification = True, key = 'WaPo'):
     '''(str(two letter abbreviation), str, bool, str) -> pd.df
         Returns seller details such as addresses

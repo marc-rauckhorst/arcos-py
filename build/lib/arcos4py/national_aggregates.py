@@ -1,12 +1,35 @@
 # National (Aggregate) Functions
+# version: 0.1.6
 
-def get_national_pharmacy_data(us_abbr_list: list, verification: bool = False, key: str = 'WaPo'):
-    '''(string) -> pd.df
+import pandas as pd
+import numpy as np
+import geopandas as gpd
+from shapely.geometry import Polygon, Point
+import requests
+from pandas.io.json import json_normalize
+
+us_abbr_list = ["AK","AL","AR","AZ", "CA","CO","CT","DE","FL","GA",
+    "HI",
+    "IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN","MO","MS","MT","NC","ND",
+    "NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VA",
+    "VT","WA","WI","WV","WY"]
+
+us_48_abbr_list = [
+    #"AK",
+    "AL","AR","AZ", "CA","CO","CT","DE","FL","GA",
+    #"HI",
+    "IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN","MO","MS","MT","NC","ND",
+    "NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VA",
+    "VT","WA","WI","WV","WY"]
+
+
+def get_national_pharmacy_data(state_list, verification: bool = False, key: str = 'WaPo'):
+    """(list, bool, string) -> DataFrame 
         Returns all pharmacy totals from all states (Will be large and could take extra time to load) 
 
         >>>get_national_pharmacy_data(verification = True)
             EXAMPLE OUTPUT
-    '''
+    """
     national_pharm_data = pd.DataFrame()
 
     if verification == True:
@@ -63,13 +86,12 @@ def get_national_pharmacy_tracts(us_abbr_list: list, verification: bool = False,
         print('Or problem with API encountered, please verify URL, state and county are correct: ')
         return None
         
-def national_data_with_geo(us_abbr_list = us_abbr_list, verification = False, key: str = 'WaPo'):
-    '''(string) -> geopandas.gdf
+def national_data_with_geo(states_list = us_abbr_list, verification = False, key: str = 'WaPo'):
+    """(string) -> geopandas.gdf
         Returns all pharmacy data and latlon geometry (Will be large and could take extra time to load) 
-
         >>>get_national_pharmacy_latlon(verification = True)
             EXAMPLE OUTPUT
-    '''
+    """
     if verification == True:
         national_data = get_national_pharmacy_data(us_abbr_list, verification, key)
         national_pharm_latlon = get_national_pharmacy_latlon(us_abbr_list, "", verification, key)

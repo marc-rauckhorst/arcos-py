@@ -1,5 +1,14 @@
-# "Supplemental" Functions
-# __version__ = "0.1.1"
+# arcos4py "Supplemental" Functions
+# __version__ = "0.1.6"
+
+import pandas as pd
+import numpy as np
+import pandas as pd
+import geopandas as gpd
+from shapely.geometry import Polygon, Point
+import requests
+from pandas.io.json import json_normalize
+
 
 def get_supp_county_population(state, county = '',verification = True, key = 'WaPo'):
     '''(str(two letter abbreviation), bool, str, str) -> pd.df

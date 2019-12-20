@@ -1,8 +1,8 @@
 Metadata-Version: 1.1
-Name: arcos-py
-Version: 0.1.0
-Summary: Python equivalent of the Washington Post's ARCOS R-package for accessing their ARCOS API
-Home-page: UNKNOWN
+Name: arcos4py
+Version: 0.2.2
+Summary: Python package to directly access the Washington Post's ARCOS API and opioid dataset
+Home-page: https://github.com/marc-rauckhorst/arcos-py
 Author: Marc Rauckhorst
 Author-email: mwrauck@sas.upenn.edu
 License: MIT license

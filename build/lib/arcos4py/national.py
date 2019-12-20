@@ -1,4 +1,22 @@
 # National (Aggregate) Functions
+# version: 0.1.5
+
+us_abbr_list = [
+    "AK",
+    "AL","AR","AZ", "CA","CO","CT","DE","FL","GA",
+    "HI",
+    "IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN","MO","MS","MT","NC","ND",
+    "NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VA",
+    "VT","WA","WI","WV","WY"]
+
+us_48_abbr_list = [
+    #"AK",
+    "AL","AR","AZ", "CA","CO","CT","DE","FL","GA",
+    #"HI",
+    "IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN","MO","MS","MT","NC","ND",
+    "NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VA",
+    "VT","WA","WI","WV","WY"]
+
 
 def get_national_pharmacy_data(us_abbr_list: list, verification: bool = False, key: str = 'WaPo'):
     '''(string) -> pd.df
@@ -63,7 +81,7 @@ def get_national_pharmacy_tracts(us_abbr_list: list, verification: bool = False,
         print('Or problem with API encountered, please verify URL, state and county are correct: ')
         return None
         
-def national_data_with_geo(us_abbr_list = us_abbr_list, verification = False, key: str = 'WaPo'):
+def national_data_with_geo(states_list = us_abbr_list, verification = False, key: str = 'WaPo'):
     '''(string) -> geopandas.gdf
         Returns all pharmacy data and latlon geometry (Will be large and could take extra time to load) 
 

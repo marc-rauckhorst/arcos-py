@@ -1,5 +1,5 @@
-# "Supplemental" Functions
-# __version__ = "0.1.1"
+# arcos4py "Supplemental" Functions
+# __version__ = "0.1.6"
 
 def get_supp_county_population(state, county = '',verification = True, key = 'WaPo'):
     '''(str(two letter abbreviation), bool, str, str) -> pd.df

@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 import pathlib
+import os
+import platform
+import sys
+import warnings
+
 
 REQUIRED = [
     'requests',
@@ -11,7 +16,6 @@ REQUIRED = [
     'shapely',
     'fiona',
 ]
-
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
@@ -23,16 +27,20 @@ README = (HERE / "README.md").read_text()
 setup(
   author="Marc Rauckhorst",
   author_email='mwrauck@sas.upenn.edu',
+  url="https://github.com/marc-rauckhorst/arcos-py",
   classifiers=[
     'License :: OSI Approved :: MIT License',
+    #'Programming Language :: Python :: 3.5'
+    #'Programming Language :: Python :: 3.6'
     'Programming Language :: Python :: 3.7',
   ],
-  description="Python equivalent of the Washington Post's ARCOS R-package for accessing their ARCOS API",
+  description="Python package to directly access the Washington Post's ARCOS API and opioid dataset",
   license="MIT license",
   include_package_data=True,
   packages=find_packages(exclude=("tests",)),
   install_requires = REQUIRED,
-  name='arcos-py',
-  version='0.1.0',
+  name='arcos4py',
+  version='0.2.2',
   zip_safe=False,
 )
+
